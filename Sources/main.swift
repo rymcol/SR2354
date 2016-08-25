@@ -3,14 +3,15 @@ struct SR2354 {
     var text = "Hello, World!"
 }
 
-class failure {
+struct X {
     subscript(x: inout Int) -> () {
         x += 1
     }
-
-    init() {
-        print(SR2354().text)
-    }
 }
 
-failure()
+func test(_ x: X) {
+    var y = 1
+    print(x[&y])
+    print(y)
+}
+test(X())
